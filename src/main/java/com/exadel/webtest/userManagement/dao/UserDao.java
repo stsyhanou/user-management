@@ -9,4 +9,5 @@ package com.exadel.webtest.userManagement.dao;
  */
 public interface UserDao {
 
+    //lol
 }
