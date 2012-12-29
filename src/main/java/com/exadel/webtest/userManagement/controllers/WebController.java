@@ -1,6 +1,5 @@
 package com.exadel.webtest.userManagement.controllers;
 
-import com.exadel.webtest.userManagement.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,4 +31,9 @@ public class WebController {
     public String loadUsers() {
         return "users";
     }
+    @RequestMapping(value = "/welcome")
+    public String welcomePage() {
+        return "users";
+    }
+
 }
