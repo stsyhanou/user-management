@@ -1,6 +1,6 @@
 package com.exadel.webtest.userManagement.service.impl;
 
-import com.exadel.webtest.userManagement.dao.Dao;
+import com.exadel.webtest.userManagement.dao.UserDao;
 import com.exadel.webtest.userManagement.domain.User;
 import com.exadel.webtest.userManagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
     @Qualifier("userDaoImpl")
     @Autowired
-    private Dao dao;
+    private UserDao dao;
 
     @Transactional
     public void add(User user) {

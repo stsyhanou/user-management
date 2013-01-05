@@ -9,7 +9,7 @@ import com.exadel.webtest.userManagement.domain.User;
  * Time: 2:32
  * To change this template use File | Settings | File Templates.
  */
-public interface Dao {
+public interface UserDao {
     public void add(User user);
     public void remove(Integer id);
 }
