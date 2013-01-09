@@ -23,6 +23,7 @@ import java.util.List;
 
 @Controller
 public class WebController {
+
     @Autowired
     private UserService userService;
 
@@ -32,8 +33,8 @@ public class WebController {
         //TODO get list of users from DB
         //test
         List<UserDto> userDtos = new ArrayList<UserDto>();
-        UserDto userDto1 = new UserDto("user1","last1","mail@1","city1","state1","street1","123456789");
-        UserDto userDto2 = new UserDto("user2","last2","mail@2","city2","state2","street2","987654321");
+        UserDto userDto1 = new UserDto(1,"user1","last1","mail@1","city1","state1","street1","123456789","111");
+        UserDto userDto2 = new UserDto(2,"user2","last2","mail@2","city2","state2","street2","987654321","222");
         userDtos.add(userDto1);
         userDtos.add(userDto2);
         return userDtos;
@@ -41,13 +42,13 @@ public class WebController {
 
     @RequestMapping(value = "/users/edit", method = RequestMethod.GET)
     public ModelAndView get(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("edit");
+        ModelAndView modelAndView = new ModelAndView("jsp/edit");
         String param =request.getParameter("id");
         UserDto userDto;
         if (param != null){
             //TODO get user by id
             //test
-            userDto = new UserDto("user1","last1","mail@1","city1","state1","street1","123456789");
+            userDto = new UserDto(0,"user1","last1","mail@1","city1","state1","street1","123456789","333");
         }else {
             userDto = new UserDto();
         }
@@ -65,7 +66,6 @@ public class WebController {
             System.out.println(param+" "+ userDto.toString());
         }else{
             //TODO add user in DB
-            //if on edit.jsp used "back" check if user is empty
             //test
             System.out.println("ADD : "+ userDto.toString());
         }
@@ -83,17 +83,17 @@ public class WebController {
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView loadUsers() {
-        return new ModelAndView("users");
+        return new ModelAndView("jsp/users");
     }
 
-    @RequestMapping(value = "/management")
-    public String loadPage() {
-        return "management";
+    @RequestMapping(value = "/management", method = RequestMethod.GET)
+    public ModelAndView loadTokens() {
+        return new ModelAndView("jsp/management");
     }
 
     @RequestMapping(value = "/welcome")
     public String welcomePage() {
-        return "users";
+        return "jsp/users";
     }
 
 }

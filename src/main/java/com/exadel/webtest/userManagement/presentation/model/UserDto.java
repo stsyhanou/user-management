@@ -10,41 +10,53 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 
-//Test Class User
-
 public class UserDto implements Serializable {
+    private int id;
     private String firstName;
     private String lastName;
-    private String mail;
+    private String email;
     private String city;
     private String state;
     private String street;
     private String phone;
+    private String password;
 
     public UserDto() {
     }
 
-    public UserDto(String firstName, String lastName, String mail, String city, String state, String street, String phone) {
+    public UserDto(int id, String firstName, String lastName, String email, String city, String state, String street, String phone, String password) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.mail = mail;
+        this.email = email;
         this.city = city;
         this.state = state;
         this.street = street;
         this.phone = phone;
+        this.password = password;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
+        return "UserDto{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", mail='" + mail + '\'' +
+                ", email='" + email + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", street='" + street + '\'' +
                 ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
                 '}';
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setFirstName(String firstName) {
@@ -55,8 +67,8 @@ public class UserDto implements Serializable {
         this.lastName = lastName;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setCity(String city) {
@@ -75,6 +87,14 @@ public class UserDto implements Serializable {
         this.phone = phone;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -83,8 +103,8 @@ public class UserDto implements Serializable {
         return lastName;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
     public String getCity() {
