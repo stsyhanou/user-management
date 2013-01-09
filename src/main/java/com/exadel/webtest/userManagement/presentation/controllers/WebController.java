@@ -1,11 +1,7 @@
 package com.exadel.webtest.userManagement.presentation.controllers;
 
-import com.exadel.webtest.userManagement.domain.Role;
-import com.exadel.webtest.userManagement.domain.User;
-import com.exadel.webtest.userManagement.presentation.model.Roles;
 import com.exadel.webtest.userManagement.presentation.model.UserDto;
 import com.exadel.webtest.userManagement.service.UserService;
-import org.hibernate.usertype.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,9 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by IntelliJ IDEA.
