@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition name="baseLayout" template="/WEB-INF/tiles/layout.jsp">
+        <put-attribute name="head" type="string" value=""/>
+        <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/tiles/body.jsp"/>
+    </definition>
+
+    <definition name="users" extends="baseLayout">
+        <put-attribute name="head" type="string" value="Users"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/users.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"/>
+    </definition>
+
+    <definition name="management" extends="baseLayout">
+        <put-attribute name="head" type="string" value="Token Management"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/management.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"/>
+    </definition>
+
+</tiles-definitions>

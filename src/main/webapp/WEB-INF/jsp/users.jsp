@@ -14,7 +14,6 @@
     <title>Users</title>
 </head>
 <body>
-<div align="center"><h1>Users</h1></div>
 <sec:authorize access="hasRole('ROLE_SUPERVISOR')">
 <table border="2" align="center" width="100%">
     <tr>

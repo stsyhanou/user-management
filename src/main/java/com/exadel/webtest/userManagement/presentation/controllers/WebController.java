@@ -42,7 +42,7 @@ public class WebController {
 
     @RequestMapping(value = "/users/edit", method = RequestMethod.GET)
     public ModelAndView get(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("jsp/edit");
+        ModelAndView modelAndView = new ModelAndView("edit");
         String param =request.getParameter("id");
         UserDto userDto;
         if (param != null){
@@ -83,17 +83,17 @@ public class WebController {
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView loadUsers() {
-        return new ModelAndView("jsp/users");
+        return new ModelAndView("users");
     }
 
     @RequestMapping(value = "/management", method = RequestMethod.GET)
     public ModelAndView loadTokens() {
-        return new ModelAndView("jsp/management");
+        return new ModelAndView("management");
     }
 
     @RequestMapping(value = "/welcome")
     public String welcomePage() {
-        return "jsp/users";
+        return "users";
     }
 
 }
