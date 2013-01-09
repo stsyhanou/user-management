@@ -17,52 +17,60 @@ import java.util.Set;
 public class User implements Serializable {
 
     @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+        @Column(name = "ID")
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private int userId;
 
-    @Column(name = "name")
-    private String name;
+        @Column(name = "firstName")
+        private String firstName;
 
-    @Column(name = "email")
-    private String email;
+        @Column(name = "lastName")
+        private String lastName;
 
-    @Column(name = "password")
-    private String password;
+        @Column(name = "email")
+        private String email;
 
-    @Column(name = "address")
-    private String address;
+        @Column(name = "city")
+        private String city;
 
-    @Column(name = "phone")
-    private String phone;
+        @Column(name ="state")
+        private String state;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "userRoles", joinColumns = { @JoinColumn(name = "userID") }, inverseJoinColumns = { @JoinColumn(name = "roleID") })
-    private Set<Role> roles = new HashSet<>();
+        @Column(name = "street")
+        private String street;
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
+        @Column(name = "phone")
+        private String phone;
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+        @Column(name = "password")
+        private String password;
+
+        @ManyToMany(cascade = CascadeType.ALL)
+        @JoinTable(name = "userRoles", joinColumns = { @JoinColumn(name = "userID") }, inverseJoinColumns = { @JoinColumn(name = "roleID") })
+        private Set<Role> roles = new HashSet<Role>();
 
     public int getUserId() {
         return userId;
-
     }
 
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -73,20 +81,28 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getCity() {
+        return city;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getAddress() {
-        return address;
+    public String getState() {
+        return state;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getPhone() {
@@ -95,5 +111,21 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
