@@ -3,16 +3,38 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:beans="http://www.springframework.org/schema/beans"
         xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+        xmlns:security="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
     <annotation-driven/>
-    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+
+ <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/"/>
         <beans:property name="suffix" value=".jsp"/>
-    </beans:bean>
-    <context:annotation-config/>
+ </beans:bean>
+
+
+ <context:annotation-config/>
+ <context:component-scan base-package="com.exadel.webtest.userManagement"/>
+
+    <!--Security configuration-->
+
+  <security:http auto-config="true" >
+        <security:intercept-url pattern="/welcome*" access="ROLE_USER,ROLE_SUPERVISOR" />
+        <security:intercept-url pattern="/users*" access="IS_AUTHENTICATED_REMEMBERED" />
+        <security:logout logout-success-url="/welcome"/>
+  </security:http>
+
+  <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="dshulgin" password="12345" authorities="ROLE_USER" />
+                <security:user name="asologub" password="123456" authorities="ROLE_SUPERVISOR" />
+            </security:user-service>
+        </security:authentication-provider>
+  </security:authentication-manager>
+
+
+
 </beans:beans>
