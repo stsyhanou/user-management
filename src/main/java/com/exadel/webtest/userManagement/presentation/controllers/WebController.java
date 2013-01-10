@@ -1,5 +1,7 @@
 package com.exadel.webtest.userManagement.presentation.controllers;
 
+import com.exadel.webtest.userManagement.presentation.model.TokenDto;
+import com.exadel.webtest.userManagement.presentation.model.TokenManagementDto;
 import com.exadel.webtest.userManagement.presentation.model.UserDto;
 import com.exadel.webtest.userManagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,18 @@ public class WebController {
     @Autowired
     private UserService userService;
 
+    @ModelAttribute("tokens")
+    public List<TokenManagementDto> getTokens(){
+        //TODO get List of users with tokens from DB
+        //test
+        List<TokenManagementDto> managementDtoList = new ArrayList<TokenManagementDto>();
+        List<TokenDto> tokens = new ArrayList<TokenDto>();
+        tokens.add(new TokenDto("access","123","09.01.2012","120"));
+        tokens.add(new TokenDto("refresh","456","10.01.2013","1"));
+        TokenManagementDto dto = new TokenManagementDto(1, "name1", tokens);
+        managementDtoList.add(dto);
+        return managementDtoList;
+    }
 
     @ModelAttribute("users")
     public List<UserDto> getUsers() {
